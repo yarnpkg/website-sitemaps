@@ -1,0 +1,13 @@
+{
+  "name": "yarn-sitemap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "algolia-sitemap": "^2.1.1",
+    "dotenv": "^6.2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
