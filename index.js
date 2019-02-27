@@ -1,6 +1,6 @@
 require('dotenv').config();
 const algoliaSitemap = require('algolia-sitemap');
-const { mkdirSync } = require('fs');
+const { mkdirSync, copyFileSync } = require('fs');
 
 const algoliaConfig = {
   appId: 'OFCNCOG2CU',
@@ -28,11 +28,13 @@ mkdirSync('build', { recursive: true });
 
 algoliaSitemap({
   algoliaConfig,
-  sitemapLoc: 'https://yarnpkg.com/sitemaps',
+  sitemapLoc: 'https://sitemap.yarnpkg.com',
   outputFolder: 'build',
   hitToParams,
 })
   .then(() => console.log('Sitemap generated successfully'))
+  .then(() => copyFileSync('index.html', 'build/index.html'))
+  .then(() => console.log('Copied index'))
   .catch(e => {
     console.log(e);
     process.exit(1);
