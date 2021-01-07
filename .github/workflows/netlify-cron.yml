@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: POST to Build Hook
-        run: curl -X POST -d {} https://api.netlify.com/build_hooks/<YOUR_HOOK_ID>
+        run: curl -X POST -d {} $NETLIFY_BUILD_HOOK
         env:
           NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }} 
