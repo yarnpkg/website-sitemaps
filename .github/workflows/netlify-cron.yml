@@ -2,7 +2,7 @@
 name: Trigger Netlify Build
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '* * * * *'
 jobs:
   build:
     environment: 'Netlify CRON action'
